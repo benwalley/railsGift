@@ -1,0 +1,50 @@
+<h1>welcome!</h1>
+<h2><%= User.find(session[:user_id]).name %></h2>
+
+<h2>Add a Gift</h2>
+<%= form_with scope: :gift, url: gifts_path, local: true do |form| %>
+	<p>
+		<%= form.label :name %><br>
+		<%= form.text_field :name %>
+	</p>
+	<p>
+		<%= form.label :comment %><br>
+		<%= form.text_field :comment %>
+	</p>
+	<p>
+		<%= form.label :link %><br>
+		<%= form.text_field :link %>
+	</p>
+
+	<p>
+		<%= form.submit :add %>
+	</p>
+<% end %>
+
+<h2>Gifts You Want</h2>
+<table>
+
+  <% @wanting.each do |gift| %>
+    <tr>
+      <td><%= gift.name %></td>
+      <td><%= gift.comment %></td>
+      <td><%= gift.link %></td>
+    </tr>
+  <% end %>
+
+  </table>
+
+  <h2>Gifts you are giving</h2>
+  <table>
+
+  <% @giving.each do |gift| %>
+    <tr>
+      <td><%= gift.name %></td>
+      <td><%= gift.comment %></td>
+      <td><%= gift.link %></td>
+    </tr>
+  <% end %>
+
+  </table>
+
+<%= link_to 'Logout', logout_path, html_options = {method: 'delete'} %>

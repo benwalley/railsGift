@@ -1,0 +1,24 @@
+<h1>All Gifts</h1>
+ 
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Comment</th>
+    <th>link</th>
+    <th>wanter</th>
+    <th>giver</th>
+  </tr>
+ 
+  <% @gifts.each do |gift| %>
+    <tr>
+      <td><%= gift.name %></td>
+      <td><%= gift.comment %></td>
+      <td><%= gift.link %></td>
+      <td><%= gift.wanter %></td>
+      <td><%= gift.giver %></td>
+      
+      
+
+    </tr>
+  <% end %>
+</table>
