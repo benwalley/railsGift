@@ -3,9 +3,9 @@ class SessionsController < ApplicationController
 		@user = User.find_by(name: params[:user][:name], password: params[:user][:password])
 		if @user
 			session[:user_id] = @user.id
-    		render 'users/show'
+    		redirect_to(welcome_path)
 		else
-			render 'new'
+			redirect_to(welcome_path)
 		end
 		
 		

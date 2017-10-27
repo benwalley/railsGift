@@ -1,9 +1,61 @@
-<p>
-  <strong>Name: </strong>
-  <%= @user.name %>
-</p>
- 
-<p>
-  <strong>Password: </strong>
-  <%= @user.password %>
-</p>
+<div class = "userShowMain">
+
+	<p class = "profileHeader showHeader">
+	  <%= @user.name %>'s wish list
+	</p>
+
+	<% if @gifts %>
+	  <% @gifts.each do |gift| %>
+	  	<div class = "showGift">
+	  	  <br>
+	      <div class = "showName"><%= gift.name %></div>
+	      <hr class = "bottomHr">
+	      <div class = "showComment"><%= gift.comment %></div>
+	      <div class = "showLink"><%= link_to gift.link, gift.link %></div>
+
+	      <div class = "displayComments fa fa-chevron-circle-down"> Comments</div>
+
+	      <!-- make give, and don't give links -->
+	      <div class = "showGive">
+			    <% if gift.giver %>
+			      <div class = "">given By: <%= User.find(gift.giver).name %></div>
+			    <% end %>
+			    <% if gift.giver == nil %>
+			      <div class = ""><%= link_to 'Give This', give_path(:gift => gift), html_options = {method: 'post'} %></div>
+			    <% else %>
+			      <% if gift.giver == session[:user_id] %>
+			      	<div class = ""><%= link_to "Don't Give This", noGive_path(:gift => gift), html_options = {method: 'post'} %></div>
+			      <% end %>
+			    <% end %> 
+		  	</div>
+		  </div>
+
+		    <!-- COMMENTS -->
+		    <% @comments = Comment.where(number: gift.id) %>
+		    <div class = "showComments">
+		      <% if @comments %>
+				    <% @comments.each do |comment| %>
+				   		<div class = "comment">
+					      <p class = "commentName"><%= comment.name %></p>
+					      <p class = "commentText"><%= comment.comment %></p>
+					      
+				    	</div>   
+				    <% end %>
+			    <% end %>
+
+			    <div class = "commentInput">
+		      	<%= form_with scope: :comment, url: comments_path, local: true do |form| %>
+							<%= form.label :comment %><br>
+							<%= form.text_field :comment %>
+				 			<%= form.hidden_field :number, value: gift.id %>
+							<%= form.submit  "comment" %>
+			  		<% end %>
+			  	</div>
+		  	</div>
+				<br>
+			
+		<% end %>
+
+	<% end %>
+
+</div>

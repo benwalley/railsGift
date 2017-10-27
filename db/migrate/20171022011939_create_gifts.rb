@@ -3,7 +3,7 @@ class CreateGifts < ActiveRecord::Migration[5.1]
     create_table :gifts do |t|
       t.string :name
       t.string :comment
-      t.integer :giver
+      t.string :giver
       t.integer :wanter
       t.boolean :given
       t.string :giveComment

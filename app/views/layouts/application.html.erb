@@ -7,11 +7,28 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin ="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i" rel="stylesheet">
+    <script src="https://use.fontawesome.com/e74f5b1fed.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans|Lato:300" rel="stylesheet">
 
   </head>
 
   <body>
+    <% if session[:user_id] %>
+    <div class = "navbar">
+      <%= link_to "GIFT LIST", all_path, class: 'navIcon left navLink', title: 'all users' %>
+      <%= link_to "", all_path, class: 'fa-2x left fa fa-users navLink', title: 'all users' %> 
+      <%= link_to User.find(session[:user_id]).name.upcase, welcome_path, class: 'navLink navName ' %>
+      <%= link_to "", welcome_path, class: 'fa-2x right fa fa-user-circle navLink', title: 'Profile' %>
+      <%= link_to '', logout_path, html_options = {method: 'delete', class: 'fa-2x right fa fa-sign-out navLink', title: 'logout'} %>
+    </div>
+    <% else %>
+    <div class = "navbar">
+      <%= link_to ' SIGN UP ', new_user_path, class: 'navLogin   navLink' %>
+      <%= link_to ' LOGIN ', login_path, class: 'navLogin   navLink' %>
+    </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

@@ -1,19 +1,11 @@
 <h1>All users</h1>
- 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Password</th>
-  </tr>
- 
-  <% @users.each do |user| %>
-    <tr>
-      <td><%= user.id %></td>
-      <td><%= user.name %></td>
-      <td><%= user.password %></td>
-      <td><%= link_to 'Delete', destroy_path(:user_id => user.id), html_options = {method: 'delete', confirm: "are you sure"} %></td>
-      
 
-    </tr>
+  <% @users.each do |user| %>
+<!-- show all users except yourself -->
+  <% if user.id != session[:user_id] %>
+  <!-- link to their page -->
+    <div><%= link_to user.name, user_path(user) %></div>
+    <div><%= user.password %></div>
   <% end %>
-</table>
+    
+  <% end %>

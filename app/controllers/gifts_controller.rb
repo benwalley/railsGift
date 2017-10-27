@@ -18,7 +18,25 @@ class GiftsController < ApplicationController
 		@gift.given = false
 
 		@gift.save
-		redirect_to @gift
+		redirect_to welcome_path
+	end
+
+	def give
+		@gift = Gift.find(params[:gift])
+		@gift.giver = session[:user_id]
+
+		@gift.save
+	
+		redirect_to(all_path)
+	end
+
+	def noGive
+		@gift = Gift.find(params[:gift])
+		@gift.giver = nil
+
+		@gift.save
+
+		redirect_to(all_path)
 	end
 
 	private

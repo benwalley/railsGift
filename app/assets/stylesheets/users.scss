@@ -2,10 +2,310 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+//=== SASS VARIABLES===
+$green: #50CD53;
+$black: #222222;
+
+
+//GENERIC CLASSES
+body{
+	overflow-x:hidden;
+	margin:0;
+	font-family: 'Lato', sans-serif;
+	background:#e9e9e9;
+
+}
+
+.left{
+	float:left;
+}
+
+.right{
+	float:right;
+}
+
+
 .passwordError{
 	display:none;
 }
 
 .submitButton{
 	display:none;
+}
+
+
+
+.middleHr {
+    background:#ededed;
+    border:0;
+    height:.7px;
+}
+
+
+
+
+//SPECIFIC CLASSES
+.navbar{
+	background:$green;
+	width:100%;
+	overflow:hidden;
+	box-shadow: 0px 0px 4px 1px #888888;
+}
+
+.navLink{
+	position:relative;
+	
+	text-decoration:none;
+	color:$black;
+	width:10vw;
+	font-weight:bold;
+	padding:1vw 0;
+	text-align:center;
+	font-family: 'Lato', sans-serif;
+}
+
+.navIcon{
+	text-align:left;
+	width:20vw;
+	font-size:2vw;
+}
+
+.navName{
+	width:40vw;
+	float:left;
+	font-size:2vw;
+	
+}
+
+.navLogin{
+	float:right;
+	padding:1vw;
+	font-size:1.2em;
+}
+
+.profileMain{
+	
+}
+
+.profileWanted{
+	
+}
+
+.profileHeader{
+	margin:0;
+	font-size:1.5em;
+	text-align:center;
+	padding:.5vw;
+}
+
+.profileAdd{
+	
+}
+
+.profileGiving{
+	width:100%;
+
+}
+
+.profileGiftName{
+	font-weight:bold;
+	font-size:1em;
+
+}
+.profileGiftcomment{
+	
+}
+.profileGiftLink{
+	
+}
+
+.profileDiv{
+	margin:2vw;
+	border-radius:.15vw;
+	background:white;
+	float:left;
+	width:80%;
+	margin-left:10vw;
+	padding:2vw;
+	box-shadow:1px 2px 9px 0px #d0d0d0;
+}
+
+.profileBottomButton{
+	width:30%;
+	text-decoration:none;
+
+	text-align:center;
+	padding:1vw;
+}
+
+.profileText{
+	padding:1px;
+}
+
+.profileAddForm{
+	width:80%;
+	padding:3px;
+	margin:0;
+}
+
+.profileAddForm input{
+	width:100%;
+	padding:.5vw;
+	border-radius:5px;
+	border:1px solid #a7a7a7;
+}
+
+.profileAddForm label{
+	margin:.4vw;
+	float:left;
+	font-weight:bold;
+}
+
+.profileSubmit input{
+	border-radius:.5vw;
+	width:10%;
+	padding:.3vw;
+	text-align:center;
+	background:$green;
+	border:1px solid #727272;
+}
+
+.profileGivingName{
+	width:20%;
+	float:left;
+	font-weight:bold;
+	padding:1vw;
+}
+.profileGivingGift{
+	float:left;
+	max-width:80%;
+	padding:1vw;
+}
+
+.bottomHr{
+	border:0;
+	background:#cccccc;
+	height:.7px;
+	width:100%;
+}
+
+// SHOW PAGE ====================
+//=================================
+
+.userShowMain{
+	width:60%;
+	margin-left:20%;
+	
+	margin-top:2vw;
+}
+
+.showGift{
+	padding:1vw;
+	overflow:hidden;
+	box-shadow:1px 1px 6px 0px rgba(97, 97, 97, 0.15);
+	border-radius:2px;
+
+}
+
+.showHeader{
+	font-weight:bold;
+	padding:1vw;
+}
+
+
+
+.showGift:nth-of-type(2n + 1) {
+	background:white;
+
+}
+
+.showName{
+	width:80%;
+	float:left;
+	font-weight:bold;
+
+}
+.showComment{
+	width:80%;
+	float:left;
+	font-size:.9em;
+	font-style:italic;
+}
+.showLink{
+	width:80%;
+	float:left;
+}
+
+
+
+.showGive{
+	
+	float:right;
+	height:100%;
+}
+
+.displayComments{
+	
+	background:#51a741;
+	padding:.3vw;
+	text-align:center;
+	font-size:.6em;
+	margin-top:.8em;
+	border-radius:.5vw;
+	color:white;
+	float:left;
+	cursor:pointer;
+	margin-right:20%;
+	border:1px solid white;
+
+}
+
+.comment{
+	
+	margin:1vw;
+	background:white;
+	font-family: 'Open Sans', sans-serif;
+	padding:1vw;
+	border-radius:2px;
+}
+
+.showComments{
+	max-height:50vh;
+	overflow-y:scroll;
+	display:none;
+	width:94%;
+	margin-left:2%;
+	margin-top:2%;
+	padding:1vw;
+	box-shadow:3px 2px 4px 2px rgba(128, 128, 128, 0.58);
+	-webkit-transition: width 2s, height 2s, background-color 2s, -webkit-transform 2s;
+    transition: width 2s, height 2s, background-color 2s, transform 2s;
+}
+
+.commentInput{
+	width:100%;
+}
+
+.commentInput input{
+	padding:5px;
+
+}
+
+.commentName{
+	margin:0;
+	color:#0a5922;
+	
+}
+
+.commentText{
+	margin:0;
+	font-style:italic;
+	padding-left:.6em;
+	font-family: 'Open Sans', sans-serif;
+	font-size:.8em;
+}
+
+.rotated{
+	transform: rotate(90deg);
+
 }

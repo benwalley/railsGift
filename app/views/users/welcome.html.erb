@@ -1,50 +1,59 @@
-<h1>welcome!</h1>
-<h2><%= User.find(session[:user_id]).name %></h2>
+<div class = "profileMain ">
+<DIV class = 'profileWanted profileDiv'>
+  <h2 class = "profileHeader">Gifts You Want</h2>
+  
 
-<h2>Add a Gift</h2>
+  <% @wanting.each do |gift| %>
+  <hr class = "middleHr">
+    <div class = "profileGiftDiv">
+      <div class = "profileGiftName profileText"><%= gift.name %></div>
+      <div class = "profileGiftComment profileText"><%= gift.comment %></div>
+      <div class = "profileGiftLink profileText"><%= link_to gift.link, gift.link %>
+      </div>
+      
+    </div>
+  <% end %>
+
+
+
+</DIV>
+<div class = "profileAdd profileDiv">
+
+<h2 class = "profileHeader">Add a Gift</h2>
 <%= form_with scope: :gift, url: gifts_path, local: true do |form| %>
-	<p>
-		<%= form.label :name %><br>
-		<%= form.text_field :name %>
+	<p class = "profileAddForm">
+		<%= form.label :'Gift Name' %><br>
+		<%= form.text_field :'name' %>
 	</p>
-	<p>
+	<p class = "profileAddForm">
 		<%= form.label :comment %><br>
 		<%= form.text_field :comment %>
 	</p>
-	<p>
+	<p class = "profileAddForm">
 		<%= form.label :link %><br>
 		<%= form.text_field :link %>
 	</p>
 
-	<p>
-		<%= form.submit :add %>
+	<p class = "profileSubmit">
+		<%= form.submit :ADD %>
 	</p>
 <% end %>
 
-<h2>Gifts You Want</h2>
-<table>
+</div>
+<div class = "profileGiving profileDiv">
+  <h2 class = "profileHeader">Gifts you are giving</h2>
 
-  <% @wanting.each do |gift| %>
-    <tr>
-      <td><%= gift.name %></td>
-      <td><%= gift.comment %></td>
-      <td><%= gift.link %></td>
-    </tr>
+  <% @giving.each do |gift| %>  
+    <div class = 'profileGiving'>
+      <hr class = "bottomHr">
+      <div class = " profileGivingName"><%= User.find(gift.wanter).name %>
+      </div>
+       <div class = "profileGivingGift"><%= gift.name %>
+      </div>
+    </div> 
   <% end %>
+  </div>
 
-  </table>
-
-  <h2>Gifts you are giving</h2>
-  <table>
-
-  <% @giving.each do |gift| %>
-    <tr>
-      <td><%= gift.name %></td>
-      <td><%= gift.comment %></td>
-      <td><%= gift.link %></td>
-    </tr>
-  <% end %>
-
-  </table>
-
-<%= link_to 'Logout', logout_path, html_options = {method: 'delete'} %>
+<%= link_to 'Logout', logout_path, html_options = {method: 'delete', class: 'profileBottomButton left'} %>
+ <%= link_to 'Delete Your Account', destroy_path(:user_id => session[:user_id]), html_options = {method: 'delete', class: 'profileBottomButton right'} %>
+</div>
