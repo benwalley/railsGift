@@ -4,14 +4,6 @@ class GiftsController < ApplicationController
 	def new
 	end
 
-	def show
-		@gift = Gift.find(params[:id])
-	end
-
-	def list
-		@gifts = Gift.all
-	end
-
 	def create
 		@gift = Gift.new(gift_params)
 		@gift.wanter = session[:user_id]
@@ -37,6 +29,19 @@ class GiftsController < ApplicationController
 		@gift.save
 
 		redirect_to(all_path)
+	end
+
+	def destroy
+		@gift = Gift.find(params[:gift_id])
+		@gift.destroy
+
+		@giftComments = Comment.where(number: @gift)
+
+		@giftComments.each do |comment|
+			comment.destroy
+		end
+		
+		redirect_to welcome_path
 	end
 
 	private

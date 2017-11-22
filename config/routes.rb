@@ -13,14 +13,14 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
-  get 'gift/list', to: 'gifts#list'
-
   post 'give', to: 'gifts#give'
 
   post 'noGive', to: 'gifts#noGive'
 
 
   delete 'destroy', to: 'users#destroy'
+
+  delete "gift_destroy", to: 'gifts#destroy'
 
   get 'all', to: 'users#list'
 end

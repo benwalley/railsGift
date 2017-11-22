@@ -5,6 +5,7 @@
 //=== SASS VARIABLES===
 $green: #50CD53;
 $black: #222222;
+$blue: #3040b8;
 
 
 //GENERIC CLASSES
@@ -39,7 +40,9 @@ body{
     background:#ededed;
     border:0;
     height:.7px;
+    color:red;
 }
+
 
 
 
@@ -63,6 +66,8 @@ body{
 	text-align:center;
 	font-family: 'Lato', sans-serif;
 }
+
+
 
 .navIcon{
 	text-align:left;
@@ -131,15 +136,48 @@ body{
 }
 
 .profileBottomButton{
-	width:30%;
+	
 	text-decoration:none;
 
 	text-align:center;
-	padding:1vw;
+	padding:.5vw;
+	color:white;
+	background:red;
+	border-radius:10px;
+	margin-right:10%;
+	margin-left:10%;
+	font-weight:bold;
+	margin-bottom:5vh;
+}
+
+.profileBottomButton:hover{
+	background:white;
+	color:red;
+	border:2px solid black;
+}
+
+.profileBottomLeftButton{
+	text-decoration:none;
+	text-align:center;
+	padding:.5vw;
+	color:white;
+	background:$blue;
+	border:1px solid grey;
+	border-radius:10px;
+	margin-right:10%;
+	margin-left:10%;
+	font-weight:bold;
+	margin-bottom:5vh;
+}
+
+.profileBottomLeftButton:hover{
+	background:#00149f;
+	
 }
 
 .profileText{
 	padding:1px;
+	width:80%;
 }
 
 .profileAddForm{
@@ -166,7 +204,8 @@ body{
 	width:10%;
 	padding:.3vw;
 	text-align:center;
-	background:$green;
+	background:#3040b8;
+	color:white;
 	border:1px solid #727272;
 }
 
@@ -187,6 +226,52 @@ body{
 	background:#cccccc;
 	height:.7px;
 	width:100%;
+}
+
+
+
+.giftDeleteButton{
+	float:right;
+	color:white;
+	background:red;
+	padding:10px;
+	border-radius:50%;
+	margin:10px
+}
+
+.profileGiftDiv{
+	overflow:hidden;
+}
+
+.flash{
+	border:1px solid red;
+	border-radius:5px;
+	background:rgba(255, 0, 0, 0.11);
+	color:red;
+	padding:10px;
+	width:80%;
+	margin:1vw;
+	margin-left:10%;
+
+	text-align:center;
+}
+
+.confirmPopup{
+	width:40%;
+	position:fixed;
+	top:20%;
+	left:30%;
+	height:40%;
+	padding:20px;
+	oveflow:hidden;
+}
+
+.popButton{
+	padding:1vw;
+	float:left;
+	position:relative;
+	background:green;
+	color:white;
 }
 
 // SHOW PAGE ====================
@@ -308,4 +393,40 @@ body{
 .rotated{
 	transform: rotate(90deg);
 
+}
+
+.allTitle{
+	padding-left:2vw;
+}
+
+.allUserName{
+	text-decoration:none;
+	font-size:2em;
+	padding:1vw;
+}
+
+.numberGifts{
+	margin:1em;
+	height:1.5em;
+	width:1.5em;
+	font-weight:bold;
+	float:right;
+	text-align:center;
+	font-size:1em;
+	background:#2857c0;
+	border-radius:50%;
+	color:white;
+	padding:2px;
+}
+
+.allUserDiv{
+	position:relative;
+	float:left;
+	width:100%;
+}
+
+.allShowMain{
+	width:60%;
+	overflow:hidden;
+	margin-left:20vw;
 }

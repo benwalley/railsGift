@@ -1,7 +1,6 @@
 
 
 
-
 $(document).ready(function(){
 	var show = $(".showComments")
 
@@ -21,8 +20,9 @@ $(document).ready(function(){
 			show[index].style.display = "none"
 		}
 	})
-})
 
+
+})
 
 
 

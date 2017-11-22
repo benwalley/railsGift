@@ -29,6 +29,11 @@
       <%= link_to ' LOGIN ', login_path, class: 'navLogin   navLink' %>
     </div>
     <% end %>
+
+    <% flash.each do |key, value| %>
+      <%= content_tag :div, value, class: "flash #{key} " %>
+    <% end %>
+    
     <%= yield %>
   </body>
 </html>

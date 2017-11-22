@@ -1,3 +1,62 @@
 // Place all the styles related to the Sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.loginMain{
+	width:60vw;
+	margin-left:20%;
+	margin-top:10vh;
+	border-radius:1vh;
+	box-shadow:2px 2px 2px grey;
+	border:.5px solid grey;
+	float:left;
+	padding:2vw;
+	
+}
+
+.loginTitle{
+	text-align:center;
+	margin:0;
+}
+
+.loginLabel{
+	margin-left:10%;
+	padding:5px;
+}
+
+.loginInput{
+	border-radius:5px;
+	width:80%;
+	margin-left:10%;
+	padding:5px;
+}
+
+.loginSubmit{
+	margin-right:10%;
+	border-radius:5px;
+	padding:5px;
+	background:#1d45d5;
+	color:white;
+	float:right;
+	margin-top:0;
+	font-family: 'Open Sans', sans-serif;
+	font-size:.9em;
+}
+
+.loginText{
+	font-size:1em;
+	margin-top:2vw;
+	
+}
+
+.signUp{
+	margin-left:10%;
+	float:left;
+	padding:5px;
+	border-radius:5px;
+	text-decoration:none;
+	background:green;
+	color:white;
+	font-family: 'Open Sans', sans-serif;
+	font-size:.9em;
+}

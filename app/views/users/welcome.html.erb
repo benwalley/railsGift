@@ -1,15 +1,20 @@
 <div class = "profileMain ">
+  
 <DIV class = 'profileWanted profileDiv'>
   <h2 class = "profileHeader">Gifts You Want</h2>
   
 
+
   <% @wanting.each do |gift| %>
   <hr class = "middleHr">
     <div class = "profileGiftDiv">
+            <%= link_to '<i class="fa fa-trash-o fa-lg giftDeleteButton" aria-hidden="true"></i>
+'.html_safe, gift_destroy_path(:gift_id => gift.id), html_options = {method: 'delete', class: 'profileDeleteGift'} %></i>
       <div class = "profileGiftName profileText"><%= gift.name %></div>
       <div class = "profileGiftComment profileText"><%= gift.comment %></div>
-      <div class = "profileGiftLink profileText"><%= link_to gift.link, gift.link %>
-      </div>
+      <div class = "profileGiftLink profileText"><%= link_to gift.link, gift.link %></div>
+
+
       
     </div>
   <% end %>
@@ -54,6 +59,7 @@
   <% end %>
   </div>
 
-<%= link_to 'Logout', logout_path, html_options = {method: 'delete', class: 'profileBottomButton left'} %>
- <%= link_to 'Delete Your Account', destroy_path(:user_id => session[:user_id]), html_options = {method: 'delete', class: 'profileBottomButton right'} %>
+<%= link_to 'Logout', logout_path, html_options = {method: 'delete', class: 'profileBottomLeftButton left'} %>
+ <%= link_to 'Delete Your Account', destroy_path(:user_id => session[:user_id]), html_options = {method: 'delete', class: 'profileBottomButton right', id: "destroy" } %>
 </div>
+

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+	skip_before_action :require_login, only: [:new, :create,:index]
 	def index
 		if session[:user_id]
 			@user = User.find(session[:user_id])
@@ -27,11 +28,13 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		@user = User.find(params[:id])
-		@gifts = Gift.where(wanter: params[:id])
-
-		
-
+		if params[:id].to_i != session[:user_id].to_i
+			@user = User.find(params[:id])
+			@gifts = Gift.where(wanter: params[:id])
+		else
+			flash[:error] = "YOU CAN NOT GO TO YOUR OWN GIFTS PAGE"
+			redirect_to welcome_path
+		end
 		# @comments = Comment.all
 	end
 

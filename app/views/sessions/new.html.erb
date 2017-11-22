@@ -1,18 +1,18 @@
-<h1>LOGIN</h1>
+<div class = "loginMain">
+<h1 class = "loginTitle">LOGIN</h1>
 
 <%= form_with scope: :user, url: login_path, local: true do |form| %>
 	<p>
-		<%= form.label :name %><br>
-		<%= form.text_field :name %>
+		<%= form.text_field :name, placeholder: 'username', class: 'loginText loginInput' %>
 	</p>
 	<p>
-		<%= form.label :password %><br>
-		<%= form.text_field :password %>
+		<%= form.password_field :password, placeholder: 'password', class: 'loginText loginInput' %>
 	</p>
 
 	<p>
-		<%= form.submit %>
+		<%= form.submit class: 'loginSubmit' %>
 	</p>
 <% end %>
 
-<%= link_to 'Login', new_user_path %>
+<%= link_to 'Sign Up', new_user_path, class: 'signUp' %>
+</div>

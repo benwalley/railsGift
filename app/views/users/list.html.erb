@@ -1,11 +1,17 @@
-<h1>All users</h1>
+<div class = "allShowMain">
+  <h1 class = "allTitle">All users</h1>
 
   <% @users.each do |user| %>
-<!-- show all users except yourself -->
-  <% if user.id != session[:user_id] %>
-  <!-- link to their page -->
-    <div><%= link_to user.name, user_path(user) %></div>
-    <div><%= user.password %></div>
-  <% end %>
+    <!-- show all users except yourself -->
+    <% if user.id != session[:user_id] %>
+    <!-- link to their page -->
+      <div class = "allUserDiv">
+        <hr>
+        <%= link_to user.name, user_path(user), class: "allUserName"%>
+        <div class = "numberGifts"><%= Gift.where(wanter: user.id).length %></div>
+
+      </div>
+    <% end %>
     
   <% end %>
+</div>
